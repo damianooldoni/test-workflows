@@ -67,3 +67,16 @@ jobs:
       - name: get branch name
         run: |
           git branch --show-current
+
+      - name: Create pull request
+        uses: devops-infra/action-pull-request@v0.4.2
+        with:
+          github_token: "${{ secrets.GITHUB_TOKEN }}"
+          target_branch: main
+          title: "[AUTO] Update data"
+          template: .github/PULL_REQUEST_TEMPLATE.md
+          reviewer: ${{ github.actor }}
+          label: automated workflow
+          get_diff: false
+          ignore_users: "dependabot"
+
