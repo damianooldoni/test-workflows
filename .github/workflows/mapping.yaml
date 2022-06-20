@@ -6,20 +6,18 @@ on:
 name: mapping
 
 jobs:
-  run_if:
-    if:  startsWith(github.head_ref, 'automatic-update/')
-    runs-on: ${{ matrix.config.os }}
-    name: ${{ matrix.config.os }} (${{ matrix.config.r }})
+  runs-on: ${{ matrix.config.os }}
+  name: ${{ matrix.config.os }} (${{ matrix.config.r }})
 
-    strategy:
-      fail-fast: false
-      matrix:
-        config:
-          - {os: ubuntu-latest,   r: 'release'}
-    env:
-      R_REMOTES_NO_ERRORS_FROM_WARNINGS: true
-      RSPM: ${{ matrix.config.rspm }}
-      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+  strategy:
+    fail-fast: false
+    matrix:
+      config:
+        - {os: ubuntu-latest,   r: 'release'}
+  env:
+    R_REMOTES_NO_ERRORS_FROM_WARNINGS: true
+    RSPM: ${{ matrix.config.rspm }}
+    GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
 
   steps:
     - name: start message
