@@ -25,5 +25,11 @@ url$query <- list(service = "wfs",
 request <- httr::build_url(url)
 
 # Download requested data as csv file
-file <- here::here("data", "raw", "rato_data.csv")
+file <- "./rato_data.csv"
 httr::GET(url = request, write_disk(file, overwrite = TRUE))
+
+# move to ./data/raw
+new_filepath <- "./data/raw/rato_data.csv"
+todir <- dirname(new_filepath)
+if (!isTRUE(file.info(todir)$isdir)) dir.create(todir, recursive=TRUE)
+file.rename(from = file,  to = new_filepath)
