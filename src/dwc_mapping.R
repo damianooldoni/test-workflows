@@ -1,5 +1,9 @@
 # Mapping file
 
+# load libraries
+library(dplyr)
+library(readr)
+
 # read input data
 input_data <-readr::read_csv("./data/raw/rato_data.csv")
 
@@ -13,5 +17,8 @@ event <- event %>%
   dplyr::select(starts_with("dwc_"))
 
 # save output
-readr::write_csv("./data/processed/event.csv")
+filename <- "./data/processed/event.csv"
+todir <- dirname(filename)
+if (!isTRUE(file.info(todir)$isdir)) dir.create(todir, recursive=TRUE)
+readr::write_csv(x = event, filename)
 
