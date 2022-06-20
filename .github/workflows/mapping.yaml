@@ -4,8 +4,8 @@ on:
       - opened
     # branches:
     # - 'automatic-update/**'
-      paths: # to further select the branch based on contained files
-        - '**.csv'
+    paths: # to further select the branch based on contained files
+      - '**.csv'
 
 name: mapping
 
