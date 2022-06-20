@@ -64,9 +64,6 @@ jobs:
           target_branch: automatic-update
           add_timestamp: true
 
-      - name: Checkout repository
-        uses: actions/checkout@v2.3.4
-
       - name: get branch name
         run: |
           git branch --show-current
