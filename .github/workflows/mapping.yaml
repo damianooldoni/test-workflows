@@ -2,15 +2,15 @@ on:
   pull_request:
     types:
       - opened
-    branches:
-      - 'automatic-update/**'
-    # paths: # to further select the branch based on contained files
-    #   - '**.csv'
+    # branches:
+    # - 'automatic-update/**'
+      paths: # to further select the branch based on contained files
+        - '**.csv'
 
 name: mapping
 
 jobs:
-  fetch-data-from-wfs:
+  mapping:
     runs-on: ${{ matrix.config.os }}
 
     name: ${{ matrix.config.os }} (${{ matrix.config.r }})
