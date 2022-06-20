@@ -10,3 +10,7 @@ testthat::test_that("Right columns in right order", {
   )
   testthat::expect_equal(names(dwc_event), columns)
 })
+
+testthat::test_that("type is equal to Event", {
+  testthat::expect_equal(unique(dwc_event$type), "Event")
+})
