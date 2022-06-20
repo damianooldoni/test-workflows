@@ -16,6 +16,7 @@ event <- event %>%
   dplyr::mutate(dwc_datasetName = "Test dataset") %>%
   dplyr::select(starts_with("dwc_"))
 
+colnames(event) <- str_remove(colnames(event), "dwc_")
 # save output
 filename <- "./data/processed/event.csv"
 todir <- dirname(filename)
