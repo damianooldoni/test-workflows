@@ -9,7 +9,7 @@ event <- event %>%
   dplyr::mutate(dwc_type = "Event") %>%
   dplyr::mutate(dwc_language = "en") %>%
   dplyr::mutate(dwc_license = "http://creativecommons.org/publicdomain/zero/1.0/") %>%
-  dplyr::mutate(dwc_datasetTitle = "Test dataset") %>%
+  dplyr::mutate(dwc_datasetName = "Test dataset") %>%
   dplyr::select(starts_with("dwc_"))
 
 # save output
