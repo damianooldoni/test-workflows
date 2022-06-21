@@ -9,3 +9,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "The head of this PR starts with 'automatic'"
+      - run: echo "new step"
