@@ -1,6 +1,11 @@
 on:
   push:
-    branches:    
+    branches:
+      - 'automatic-**'
+  pull_request:
+    types:
+      - opened
+    branches:
       - 'automatic-**'
 
 name: dummy
