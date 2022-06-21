@@ -2,7 +2,11 @@ on:
   push:
     branches:    
       - 'automatic'
+
+name: dummy
+
 jobs:
+  dummy:
   runs-on: ubuntu-latest
   steps:
     - run: echo "The head of this PR starts with 'automatic'"
