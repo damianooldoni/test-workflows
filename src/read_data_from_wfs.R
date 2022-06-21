@@ -1,5 +1,4 @@
 #' Download data from rato vzw's WFS as csv
-
 # load libraries
 library(httr) # generic webservice package
 library(ows4R) # interface for OGC webservices
