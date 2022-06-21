@@ -1,11 +1,12 @@
 on:
   push:
     branches:    
-      - 'automatic'
+      - 'automatic-**'
+
+name: dummy
 
 jobs:
-  run_if:
-    if:  startsWith(github.head_ref, 'automatic-**')
+  dummy:
     runs-on: ubuntu-latest
     steps:
       - run: echo "The head of this PR starts with 'automatic'"
