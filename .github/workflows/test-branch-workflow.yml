@@ -1,7 +1,7 @@
 on:
-  pull_request:
-    types:
-      - opened
+  push:
+    branches:    
+      - 'automatic**'
 jobs:
   run_if:
     if:  startsWith(github.head_ref, 'automatic')
