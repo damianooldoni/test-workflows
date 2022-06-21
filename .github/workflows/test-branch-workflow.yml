@@ -2,6 +2,7 @@ on:
   pull_request:
     types:
       - opened
+
 jobs:
   run_if:
     if:  startsWith(github.head_ref, 'automatic')
