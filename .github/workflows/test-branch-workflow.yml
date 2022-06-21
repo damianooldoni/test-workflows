@@ -4,7 +4,7 @@ on:
       - 'automatic'
 jobs:
   run_if:
-    if:  startsWith(github.head_ref, 'automatic-**')
+    if:  startsWith(github.head_ref, 'automatic')
     runs-on: ubuntu-latest
     steps:
       - run: echo "The head of this PR starts with 'automatic'"
