@@ -2,7 +2,7 @@ on:
   schedule:
     - cron: "*/5 * * * *"
 
-name: fetch-data
+name: fetch-data-from-wfs
 
 jobs:
   fetch-data-from-wfs:
