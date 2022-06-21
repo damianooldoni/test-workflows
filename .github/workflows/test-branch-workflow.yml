@@ -2,7 +2,6 @@ on:
   push:
     branches:    
       - 'automatic'
-
 jobs:
   run_if:
     if:  startsWith(github.head_ref, 'automatic-**')
