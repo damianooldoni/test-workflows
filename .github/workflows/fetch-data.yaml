@@ -65,7 +65,7 @@ jobs:
       - name: Commit and push changes
         uses: devops-infra/action-commit-push@master
         with:
-          github_token: "${{ secrets.GITHUB_TOKEN }}"
+          github_token: "${{ steps.generate-token.outputs.token }}"
           commit_prefix: "[AUTO]"
           commit_message: "Fetch data"
           target_branch: automatic-update
@@ -82,7 +82,6 @@ jobs:
           target_branch: main
           title: "[AUTO] Update data"
           template: .github/PULL_REQUEST_TEMPLATE.md
-          reviewer: ${{ github.actor }}
           label: automated workflow
           get_diff: false
           ignore_users: "dependabot"
