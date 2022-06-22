@@ -5,10 +5,10 @@ on:
     branches:
       - 'main'
 
-name: fetch-data-from-wfs
+name: fetch-data
 
 jobs:
-  fetch-data-from-wfs:
+  fetch-data:
     runs-on: ${{ matrix.config.os }}
 
     name: ${{ matrix.config.os }} (${{ matrix.config.r }})
