@@ -1,9 +1,7 @@
 # Checklist recipe<!-- Replace this with the title of your checklist dataset -->
 
 <!-- Delete the following text -->
-> 👩🏻‍🍳 This is a template repository for **standardizing thematic species checklist data to Darwin Core using R**. As a result, the rest of the README is a template as well. To use this repository for your own checklist data, [read the recipe](https://github.com/trias-project/checklist-recipe/wiki). Happy cooking!
-
-## Rationale
+> 👩🏻‍🍳 This is a template repository for **standardizing thematic species checklist data to Darwin Core using R**. As a result, the rest of the README is a template as well. To use this repository for your own checklist data, [read the 
 
 <!-- This section gives a quick description of what this repository is for. At least update the "... the data of (blank) ..." or edit as you see fit. -->
 
