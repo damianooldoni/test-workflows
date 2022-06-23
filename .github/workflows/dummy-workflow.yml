@@ -11,6 +11,7 @@ jobs:
       - name: Change something
         run: |
           find . -type f -name "*" -print0 | xargs -0 sed -i "s/foo/bar/g"
+
       - uses: tibdex/github-app-token@v1
         id: generate-token
         with:
@@ -22,6 +23,7 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           commit_prefix: "[AUTO-COMMIT] foo/bar replace"
+          branch: "dummy-branch"
       - name: Create pull request
         uses: devops-infra/action-pull-request@master
         with:
