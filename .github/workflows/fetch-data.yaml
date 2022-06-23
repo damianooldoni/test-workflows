@@ -35,6 +35,19 @@ jobs:
           app_id: ${{ secrets.APP_ID_2 }}
           private_key: ${{ secrets.APP_PRIVATE_KEY_2 }}
 
+      - name: Change something
+        run: |
+          find . -type f -name "*" -print0 | xargs -0 sed -i "s/foo/bar/g"
+
+      - name: Commit and push changes
+        uses: devops-infra/action-commit-push@master
+        with:
+          github_token: ${{ steps.generate-token.outputs.token }}
+          commit_prefix: "[AUTO]"
+          commit_message: "dummy"
+          target_branch: automatic-update
+          add_timestamp: true
+
       - name: setup R
         uses: r-lib/actions/setup-r@master
         with:
