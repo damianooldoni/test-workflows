@@ -1,44 +1,46 @@
 # from https://github.com/devops-infra/action-commit-push
 name: Push changes
 on:
-  push
-jobs:
-  change-and-push:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2.3.4
-        with:
-          fetch-depth: 0
+  push:
+      branches:
+        - 'main'
+  jobs:
+    change-and-push:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout repository
+          uses: actions/checkout@v2.3.4
+          with:
+            fetch-depth: 0
 
-      - uses: tibdex/github-app-token@v1
-        id: generate-token
-        with:
-          app_id: ${{ secrets.APP_ID }}
-          private_key: ${{ secrets.APP_PRIVATE_KEY }}
+        - uses: tibdex/github-app-token@v1
+          id: generate-token
+          with:
+            app_id: ${{ secrets.APP_ID }}
+            private_key: ${{ secrets.APP_PRIVATE_KEY }}
 
-      - name: Change something
-        run: |
-          find . -type f -name "*" -print0 | xargs -0 sed -i "s/foo/bar/g"
+        - name: Change something
+          run: |
+            find . -type f -name "*" -print0 | xargs -0 sed -i "s/foo/bar/g"
 
-     - name: Commit and push changes
-        uses: devops-infra/action-commit-push@master
-        with:
-          github_token: "${{ steps.generate-token.outputs.token }}"
-          commit_prefix: "[AUTO]"
-          commit_message: "dummy test"
-          target_branch: automatic-dummy-test
-          add_timestamp: true
+       - name: Commit and push changes
+          uses: devops-infra/action-commit-push@master
+          with:
+            github_token: "${{ steps.generate-token.outputs.token }}"
+            commit_prefix: "[AUTO]"
+            commit_message: "dummy test"
+            target_branch: automatic-dummy-test
+            add_timestamp: true
 
-      - name: get branch name
-        run: |
-          git branch --show-current
+        - name: get branch name
+          run: |
+            git branch --show-current
 
-     - name: Create pull request
-        uses: devops-infra/action-pull-request@master
-        with:
-          github_token: ${{ steps.generate-token.outputs.token }}
-          target_branch: main
-          title: ${{ github.event.commits[0].message }}
-          body: "**Automated pull request**<br><br>Replaced foo/bar"
-          label: automated workflow
+       - name: Create pull request
+          uses: devops-infra/action-pull-request@master
+          with:
+            github_token: ${{ steps.generate-token.outputs.token }}
+            target_branch: main
+            title: ${{ github.event.commits[0].message }}
+            body: "**Automated pull request**<br><br>Replaced foo/bar"
+            label: automated workflow
