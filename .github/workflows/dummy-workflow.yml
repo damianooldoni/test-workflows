@@ -1,8 +1,8 @@
 # inspired by https://github.com/devops-infra/action-commit-push
 on:
   push:
-      branches:
-        - 'main'
+    branches:
+      - 'main'
 
 name: change-commit-pr-test
 
