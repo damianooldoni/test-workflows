@@ -28,6 +28,7 @@ jobs:
       - name: get branch name
         run: |
           git branch --show-current
+
       - name: setup R
         uses: r-lib/actions/setup-r@master
         with:
@@ -43,6 +44,7 @@ jobs:
           sudo apt-get install libcurl4-openssl-dev
           sudo apt-get install libgdal-dev libproj-dev
           sudo apt install libudunits2-dev
+
       - name: Install packages
         run: |
           source("src/install_packages.R")
@@ -56,7 +58,7 @@ jobs:
       - name: Commit and push changes
         uses: devops-infra/action-commit-push@master
         with:
-          github_token: "${{ secrets.GITHUB_TOKEN }}"
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           commit_prefix: "[AUTO]"
           commit_message: "Mapping"
 
