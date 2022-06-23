@@ -1,0 +1,24 @@
+# from https://github.com/devops-infra/action-commit-push
+name: Push changes
+on:
+  push
+jobs:
+  change-and-push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Change something
+        run: |
+          find . -type f -name "*" -print0 | xargs -0 sed -i "s/foo/bar/g"
+      - name: Commit and push changes
+        uses: devops-infra/action-commit-push@v0.9.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          commit_prefix: "[AUTO-COMMIT] foo/bar replace"
+      - name: Create pull request
+        uses: devops-infra/action-pull-request@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          body: "**Automated pull request**<br><br>Replaced foo/bar"
+          title: ${{ github.event.commits[0].message }}
