@@ -38,11 +38,11 @@ jobs:
         run: |
           git branch --show-current
 
-     - name: Create pull request
-       uses: devops-infra/action-pull-request@master
-       with:
-         github_token: ${{ steps.generate-token.outputs.token }}
-         target_branch: main
-         title: ${{ github.event.commits[0].message }}
-         body: "**Automated pull request**<br><br>Replaced foo/bar"
-         label: automated workflow
+      - name: Create pull request
+        uses: devops-infra/action-pull-request@master
+        with:
+          github_token: ${{ steps.generate-token.outputs.token }}
+          target_branch: main
+          title: ${{ github.event.commits[0].message }}
+          body: "**Automated pull request**<br><br>Replaced foo/bar"
+          label: automated workflow
