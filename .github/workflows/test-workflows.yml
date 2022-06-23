@@ -25,3 +25,11 @@ jobs:
         run: |
           find . -type f -name "*" -print0 | xargs -0 sed -i "s/foo/bar/g"
 
+     - name: Commit and push changes
+       uses: devops-infra/action-commit-push@master
+       with:
+         github_token: "${{ steps.generate-token.outputs.token }}"
+         commit_prefix: "[AUTO]"
+         commit_message: "dummy test"
+         target_branch: automatic-dummy-test
+         add_timestamp: true
