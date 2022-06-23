@@ -1,13 +1,15 @@
-# inspired by https://github.com/devops-infra/action-commit-push
 on:
+    # schedule:
+    #   - cron: "*/5 * * * *"
   push:
     branches:
       - 'main'
 
-name: change-commit-pr-test
+
+name: test-workflows
 
 jobs:
-  change-commit-pr-test:
+  test-workflows:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
