@@ -23,7 +23,7 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           commit_prefix: "[AUTO-COMMIT] foo/bar replace"
-          branch: "dummy-branch"
+          target_branch: "dummy-branch"
       - name: Create pull request
         uses: devops-infra/action-pull-request@master
         with:
