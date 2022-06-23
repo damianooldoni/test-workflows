@@ -32,8 +32,8 @@ jobs:
       - uses: tibdex/github-app-token@v1
         id: generate-token
         with:
-          app_id: ${{ secrets.APP_ID }}
-          private_key: ${{ secrets.APP_PRIVATE_KEY }}
+          app_id: ${{ secrets.APP_ID_2 }}
+          private_key: ${{ secrets.APP_PRIVATE_KEY_2 }}
 
       - name: setup R
         uses: r-lib/actions/setup-r@master
