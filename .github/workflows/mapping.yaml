@@ -1,7 +1,7 @@
 on:
   push:
     branches:
-      - 'automatic/**'
+      - 'automatic**'
 
 name: mapping
 
