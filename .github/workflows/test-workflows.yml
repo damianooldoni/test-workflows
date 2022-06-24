@@ -15,12 +15,6 @@ jobs:
         with:
           fetch-depth: 0
 
-      - uses: tibdex/github-app-token@v1
-        id: generate-token
-        with:
-          app_id: ${{ secrets.APP_ID_2 }}
-          private_key: ${{ secrets.APP_PRIVATE_KEY_2 }}
-
       - name: Change something
         run: |
           find . -type f -name "*" -print0 | xargs -0 sed -i "s/foo/bar/g"
@@ -28,7 +22,7 @@ jobs:
       - name: Commit and push changes
         uses: devops-infra/action-commit-push@master
         with:
-          github_token: ${{ steps.generate-token.outputs.token }}
+          github_token: ${{ secrets.WORKFLOWS }}
           commit_prefix: "[AUTO]"
           commit_message: "dummy test"
           target_branch: automatic-dummy-test
@@ -41,7 +35,7 @@ jobs:
       - name: Create pull request
         uses: devops-infra/action-pull-request@master
         with:
-          github_token: ${{ steps.generate-token.outputs.token }}
+          github_token: ${{ secrets.WORKFLOWS }}
           target_branch: main
           title: "dummy test"
           body: "**Automated pull request**<br><br>Replaced foo/bar"
