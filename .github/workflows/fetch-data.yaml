@@ -79,6 +79,6 @@ jobs:
           get_diff: false
           ignore_users: "dependabot"
       - name: Checkout Repo
-          uses: actions/checkout@v2
-          with:
-              token: ${{ secrets.WORKFLOWS }}
+        uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.WORKFLOWS }}
