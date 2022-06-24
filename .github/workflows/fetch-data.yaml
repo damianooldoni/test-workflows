@@ -21,19 +21,13 @@ jobs:
     env:
       R_REMOTES_NO_ERRORS_FROM_WARNINGS: true
       RSPM: ${{ matrix.config.rspm }}
-      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+      GITHUB_PAT: ${{ secrets.WORKFLOWS }}
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2.3.4
         with:
           fetch-depth: 0
-
-      - uses: tibdex/github-app-token@v1
-        id: generate-token
-        with:
-          app_id: ${{ secrets.APP_ID_2 }}
-          private_key: ${{ secrets.APP_PRIVATE_KEY_2 }}
 
       - name: setup R
         uses: r-lib/actions/setup-r@master
@@ -84,3 +78,7 @@ jobs:
           label: automated workflow
           get_diff: false
           ignore_users: "dependabot"
+      - name: Checkout Repo
+          uses: actions/checkout@v2
+          with:
+              token: ${{ secrets.WORKFLOWS }}
