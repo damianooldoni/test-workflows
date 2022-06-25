@@ -78,5 +78,3 @@ jobs:
           label: automated workflow
           get_diff: false
           ignore_users: "dependabot"
-      - name: Checkout Repo
-        uses: actions/checkout@v2
