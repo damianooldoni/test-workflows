@@ -65,12 +65,6 @@ jobs:
           target_branch: automatic-update
           add_timestamp: true
 
-      - name: get branch name
-        run: |
-          git branch --show-current
-        with:
-          token: ${{ secrets.WORKFLOWS }}$
-
       - name: Create pull request
         uses: devops-infra/action-pull-request@v0.4.2
         with:
