@@ -1,1 +1,1 @@
-Test repository for GitHub workflows.
+Test repo for GitHub workflows.
