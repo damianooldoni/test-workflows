@@ -21,13 +21,14 @@ jobs:
     env:
       R_REMOTES_NO_ERRORS_FROM_WARNINGS: true
       RSPM: ${{ matrix.config.rspm }}
-      GITHUB_PAT: ${{ secrets.WORKFLOWS }}
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2.3.4
         with:
+          token: ${{ secrets.WORKFLOWS }}$
           fetch-depth: 0
+        
 
       - name: setup R
         uses: r-lib/actions/setup-r@master
@@ -67,6 +68,8 @@ jobs:
       - name: get branch name
         run: |
           git branch --show-current
+        with:
+          token: ${{ secrets.WORKFLOWS }}$
 
       - name: Create pull request
         uses: devops-infra/action-pull-request@v0.4.2
