@@ -22,6 +22,7 @@ jobs:
       R_REMOTES_NO_ERRORS_FROM_WARNINGS: true
       RSPM: ${{ matrix.config.rspm }}
       GITHUB_PAT: ${{ secrets.WORKFLOWS }}
+      GITHUB_TOKEN: ${{ secrets.WORKFLOWS }}
 
     steps:
       - name: Checkout repository
@@ -82,6 +83,3 @@ jobs:
       - name: get branch name
         run: |
           git branch --show-current
-
-      - name: Checkout repository
-        uses: actions/checkout@v2.3.4
