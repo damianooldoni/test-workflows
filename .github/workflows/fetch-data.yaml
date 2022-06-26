@@ -78,3 +78,10 @@ jobs:
           label: automated workflow
           get_diff: false
           ignore_users: "dependabot"
+
+      - name: get branch name
+        run: |
+          git branch --show-current
+
+      - name: Checkout repository
+        uses: actions/checkout@v2.3.4
