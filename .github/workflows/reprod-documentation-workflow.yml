@@ -13,5 +13,5 @@ jobs:
       - name: Commit and push changes
         uses: devops-infra/action-commit-push@v0.9.0
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.WORKFLOWS }}
           commit_message: Replaced foo with bar
