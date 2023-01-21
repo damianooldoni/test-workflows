@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
     branches: [ main ]
 
-name: fetch-data
+name: fetch-data-webdav
 
 jobs:
   fetch-data-webdav:
