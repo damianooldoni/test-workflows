@@ -2,6 +2,7 @@ on:
   push:
     branches:
       - main
+name: broken link checker
 jobs:
   broken-link-checker:
     runs-on: ubuntu-latest
