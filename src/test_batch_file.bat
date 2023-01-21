@@ -1,2 +1,3 @@
 echo off
-type .//src//dummy.txt
+set arg1=%1
+echo %arg1%
