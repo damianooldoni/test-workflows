@@ -1,3 +1,3 @@
 echo off
-set arg1=%1
+set arg1=%cd%
 echo %arg1%

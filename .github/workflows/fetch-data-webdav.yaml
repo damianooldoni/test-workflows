@@ -29,11 +29,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: dummy
-        run: .\\src\\test_batch_file.bat "hello world"
+      - name: get current directory
+        run: .\\src\\test_batch_file.bat
 
       - name: fetch-data-via-webdav
-        run: .\\src\\download_via_webdav.bat ${{ secrets.WEBDAV_PASSWORD }}
+        run: .\\src\\download_via_webdav.bat ${{ secrets.WEBDAV_SECRET_VMM_RATTENAPP }}
 
       - name: Commit and push changes
         uses: devops-infra/action-commit-push@master
