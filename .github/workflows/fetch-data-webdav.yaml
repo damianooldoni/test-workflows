@@ -27,10 +27,7 @@ jobs:
     steps:
 
       - name: Checkout repository
-        uses: actions/checkout@v2.3.4
-        with:
-          fetch-depth: 0
-          token: ${{ secrets.WORKFLOWS }}
+        uses: actions/checkout@v3
 
       - name: fetch-data-via-webdav
         run: .\\src\\download_via_webdav.bat ${{ secrets.WEBDAV_PASSWORD }}
